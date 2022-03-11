@@ -155,9 +155,12 @@ class ProductController extends Controller
 
                     $message = 'Product successfully updated';
 
+                    $product = Product::where('uuid', $uuid)
+                        ->first();
+
                     $data   = [
                         'message' => $message,
-                        'product' => $testProductAvaliability,
+                        'product' => $product,
                     ];
                 } catch(Exception $e) {
                     $data   = [
